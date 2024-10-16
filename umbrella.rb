@@ -3,7 +3,7 @@ pp "howdy"
 require "http"
 
 # Hidden variables
-pirate_weather_api_key = "3RrQrvLmiUayQ84JSxL8D2aXw99yRKlx1N4qFDUE"
+pirate_weather_api_key = ENV.fetch("PIRATE_WEATHER_KEY")
 
 # Assemble the full URL string by adding the first part, the API token, and the last part together
 pirate_weather_url = "https://api.pirateweather.net/forecast/" + pirate_weather_api_key + "/41.8887,-87.6355"
@@ -20,7 +20,3 @@ currently_hash = parsed_response.fetch("currently")
 current_temp = currently_hash.fetch("temperature")
 
 puts "The current temperature is " + current_temp.to_s + "."
-
-require "http"
-require "json"
-
